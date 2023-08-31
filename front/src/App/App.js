@@ -1,4 +1,5 @@
 import style from'./App.module.css';
+import { useState } from 'react';
 import {Routes, Route, NavLink, useNavigate} from 'react-router-dom';
 // import Test from '../component/Test/Test';
 import Name from '../component/Name/Name';
@@ -8,12 +9,12 @@ import Blog from '../conteiner/Blog/Blog';
 
 function App() {
   const navigate = useNavigate();
-const handlerChange = (ev) => {
-  console.log('event>>', ev.target.value);
-  const result = ev.target.value;
-  const url = `/blog/${result}`;
-  navigate(url);
-}
+  const handlerChange = (ev) => {
+    console.log('event>>', ev.target.value);
+    const result = ev.target.value;
+    const url = `/blog/${result}`;
+    navigate(url);
+  }
 
   return (
     <div className={style.App}>
@@ -25,7 +26,7 @@ const handlerChange = (ev) => {
       <br></br>
       <NavLink to='/contact'>Contact</NavLink>
       <br/>
-      {/* <NavLink to='/blog/1'>Blog</NavLink> */}
+      <NavLink to='/blog/1'>Blog</NavLink>
       </div>
       <input type='text' onChange={handlerChange}></input>
       <Routes>
